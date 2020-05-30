@@ -1019,10 +1019,10 @@ components.slick = {
 
 components.counter = {
 	selector: '[data-counter]',
-	styles: './assets/counter/counter.css',
+	styles: './assets/css/counter.css',
 	script: [
 		'./assets/js/util.min.js',
-		'./assets/counter/counter.min.js',
+		'./assets/js/counter.min.js',
 	],
 	init: function ( nodes ) {
 		let observer = new IntersectionObserver( function ( entries ) {
@@ -1241,10 +1241,10 @@ components.rdSearch = {
 
 components.rdRange = {
 	selector: '.rd-range',
-	styles: './assets/rd-range/rd-range.css',
+	styles: './assets/css/rd-range.css',
 	script: [
 		'./assets/js/jquery-3.4.1.min.js',
-		'./assets/rd-range/rd-range.min.js'
+		'./assets/js/rd-range.min.js'
 	],
 	init: function ( nodes ) {
 		nodes.forEach( function ( node ) {
@@ -1257,7 +1257,7 @@ components.maskedinput = {
 	selector: '[data-masked]',
 	script: [
 		'./assets/js/jquery-3.4.1.min.js',
-		'./assets/maskedinput/jquery.maskedinput.min.js'
+		'./assets/js/jquery.maskedinput.min.js'
 	],
 	init: function ( nodes ) {
 		nodes.forEach( function ( node ) {
@@ -1268,10 +1268,10 @@ components.maskedinput = {
 
 components.spinner = {
 	selector: '[data-spinner]',
-	styles: './assets/spinner/spinner.css',
+	styles: './assets/css/spinner.css',
 	script: [
 		'./assets/js/jquery-3.4.1.min.js',
-		'./assets/jquery/jquery-ui.min.js'
+		'./assets/js/jquery-ui.min.js'
 	],
 	init: function ( nodes ) {
 		nodes.forEach( function ( node ) {
@@ -1430,10 +1430,10 @@ components.fullcalendar = {
 
 components.vide = {
 	selector: '.vide',
-		styles: './assets/vide/vide.css',
+		styles: './assets/css/vide.css',
 		script: [
 		'./assets/js/jquery-3.4.1.min.js',
-		'./assets/vide/vide.min.js',
+		'./assets/js/vide.min.js',
 	],
 		init: function ( nodes ) {
 		nodes.forEach( function ( node ) {
@@ -1498,8 +1498,8 @@ components.accordion = {
 components.pagination = {
 	selector: '.pagination, .pag',
 	styles: [
-		'./assets/pagination/pagination.css',
-		'./assets/pag/pag.css',
+		'./assets/css/pagination.css',
+		'./assets/css/pag.css',
 		'./assets/css/intense-icons.css'
 	]
 };
@@ -1644,27 +1644,27 @@ components.postShare = {
 
 components.product = {
 	selector: '.product',
-	styles: './assets/product/product.css'
+	styles: './assets/css/product.css'
 };
 
 components.productOverview = {
 	selector: '.product-overview',
-	styles: './assets/product-overview/product-overview.css'
+	styles: './assets/css/product-overview.css'
 };
 
 components.productToolbar = {
 	selector: '.product-toolbar',
-	styles: './assets/product-toolbar/product-toolbar.css'
+	styles: './assets/css/product-toolbar.css'
 };
 
 components.widget = {
 	selector: '.widget',
-	styles: './assets/widget/widget.css'
+	styles: './assets/css/widget.css'
 };
 
 components.offerBox = {
 	selector: '.offer-box',
-	styles: './assets/offer-box/offer-box.css'
+	styles: './assets/css/offer-box.css'
 };
 
 components.tag = {
@@ -1699,10 +1699,10 @@ components.iframe = {
 
 components.gmap = {
 	selector: '.google-map',
-		styles: './assets/google-map/google-map.css',
+		styles: './assets/css/google-map.css',
 		script: [
 		'//maps.google.com/maps/api/js?key=AIzaSyBHij4b1Vyck1QAuGQmmyryBYVutjcuoRA&libraries=geometry,places&v=quarterly',
-		'./assets/google-map/google-map.js'
+		'./assets/js/google-map.js'
 	],
 	init: function ( nodes ) {
 		let promises = [];
@@ -1815,7 +1815,7 @@ components.highchartsDouble = {
 
 components.highcharts = {
 	selector: '.highcharts-container',
-		styles: './assets/highchart/highchart.css',
+		styles: './assets/css/highchart.css',
 		script: [
 		'./assets/js/jquery-3.4.1.min.js',
 		'./assets/js/highchart.min.js'
@@ -2177,3 +2177,8 @@ window.addEventListener( 'load', function () {
 		observeDOM: window.xMode
 	});
 });
+
+function inputLink() {
+    $( 'html, body' ).stop().animate( { scrollTop:0 }, 500, 'swing');  
+    $( '#link' ).focus(); 
+}
