@@ -18,8 +18,8 @@
                             <button class="navbar-switch int-hamburger novi-icon" data-multi-switch='{"targets":".rd-navbar","scope":".rd-navbar","isolate":"[data-multi-switch]"}'></button>
                             <div class="navbar-logo">
                                 <a class="navbar-logo-link" href="<?php echo base_url(); ?>">
-                                    <img class="navbar-logo-default" src="<?php echo base_url('assets/img/logo-default-114x27.svg'); ?>" alt="Product Monitor" width="114" height="27"/>
-                                    <img class="navbar-logo-inverse" src="<?php echo base_url('assets/img/logo-inverse-114x27.svg'); ?>" alt="Product Monitor" width="114" height="27"/>
+                                    <img class="navbar-logo-default" src="<?php echo base_url('assets/img/logo-default-114x27.png'); ?>" alt="Product Monitor" width="114" height="27"/>
+                                    <img class="navbar-logo-inverse" src="<?php echo base_url('assets/img/logo-inverse-114x27.png'); ?>" alt="Product Monitor" width="114" height="27"/>
                                 </a>
                             </div>
                         </div>
@@ -187,7 +187,7 @@
     </div>
     <div class="page-loader context-dark">
         <div class="page-loader-container">
-            <img class="page-loader-logo" src="<?php echo base_url('assets/img/logo-default-114x27.svg'); ?>" alt="Product Monitor" width="114" height="27"/>
+            <img class="page-loader-logo" src="<?php echo base_url('assets/img/logo-default-114x27.png'); ?>" alt="Product Monitor" width="114" height="27"/>
             <svg class="page-loader-progress" x="0px" y="0px" width="100" height="100" viewBox="0 0 100 100" style="visibility: hidden;">
                 <circle class="page-loader-circle clipped" cx="50" cy="50" r="48"></circle>
             </svg>
