@@ -178,4 +178,50 @@ class Site extends CI_Controller
         );
         $this->load->view('product', $data);
     }
+
+    public function update()
+    {
+        if (!is_null($products = $this->data->listProduct())) {
+            foreach ($products as $product) {
+                $price_current = $price_old = null;
+                if ($html = file_get_html($product->url)) {
+                    if ($info = $html->find('.product-info-main', 0)) {
+                        if ($price = $info->find('.price-final_price', 0)) {
+                            if ($new_current = $price->find('.price', 0)) {
+                                $price_current = trim($new_current->innertext);
+                            }
+                            if ($new_old = $price->find('.price', 1)) {
+                                $price_old = trim($new_old->innertext);
+                            }
+                        }
+                    }
+                }
+                $data_product = array();
+                if ($product->price_current != $price_current) {
+                    $data_price = array(
+                        'id_product' => $product->id,
+                        'type' => 'price_current',
+                        'price_before' => $product->price_current,
+                        'price_after' => $price_current,
+                    );
+                    $data_product['price_current'] = $price_current;
+                    $this->data->setPrice($data_price);
+                }
+                if ($product->price_old != $price_old) {
+                    $data_price = array(
+                        'id_product' => $product->id,
+                        'type' => 'price_old',
+                        'price_before' => $product->price_old,
+                        'price_after' => $price_old,
+                    );
+                    $data_product['price_old'] = $price_old;
+                    $this->data->setPrice($data_price);
+                }
+                if (!empty($data_product)) {
+                    $this->data->updateProduct($data_product, $product->id);
+                }
+            }
+        }
+        echo "Update complete";
+    }
 }

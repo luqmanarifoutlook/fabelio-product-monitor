@@ -92,6 +92,12 @@
                                     <?php } ?>
                                     <span><?php echo $product->price_current; ?></span>
                                 </div>
+                                <div class="offset-xs">
+                                    <a class="icon-box text-primary" href="<?php echo $product->url; ?>" target="_blank">
+                                      <i class="icon-box-icon novi-icon fa-external-link"></i>
+                                      <span class="icon-box-text">Visit original link</span>
+                                    </a>
+                                </div>
                             </div>
                             <?php if (!is_null($colors)) { ?>
                             <div class="product-overview-item">

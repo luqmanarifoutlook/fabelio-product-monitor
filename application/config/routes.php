@@ -8,3 +8,4 @@ $route['translate_uri_dashes'] = false;
 $route['set']            = 'site/set';
 $route['collection']     = 'site/collection';
 $route['product']        = 'site/product';
+$route['update']         = 'site/update';

@@ -53,7 +53,7 @@
             <div class="container">
                 <div class="row row-30 align-items-center">
                     <div class="col-md-6">
-                        <form class="form" method="post" action="<?php echo base_url('set'); ?>">
+                        <form class="form form-url" method="post" action="<?php echo base_url('set'); ?>">
                             <h2>Take control of your desired products.</h2>
                             <p class="animated fadeInUp">
                                 <span class="h6">Product Monitor is an independent web application with rich features. Start collecting your favourite products.</span>

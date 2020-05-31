@@ -56,6 +56,12 @@ class Data extends CI_Model
         return $query->num_rows() ? $query->result() : null;
     }
 
+    public function getUpdated($id)
+    {
+        $query = $this->db->query("SELECT * FROM updated WHERE id = '" . $id . "'");
+        return $query->num_rows() ? $query->row() : null;
+    }
+
     public function listProduct()
     {
         $query = $this->db->query("
@@ -176,6 +182,17 @@ class Data extends CI_Model
                 }
             }
             return $product;
+        }
+        return null;
+    }
+    public function updateProduct($data, $id_product) {
+        $this->db->where('id', $id_product);
+        $this->db->update('product', $data);
+        return null;
+    }
+    public function setPrice($data) {
+        if ($this->db->insert('updated', $data)) {
+            return $this->getUpdated($this->db->insert_id());
         }
         return null;
     }

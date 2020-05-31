@@ -52,7 +52,46 @@
         <section class="section section-lg bg-transparent novi-background">
             <div class="container">
                 <div class="row row-50 novi-disabled">
-                    <div class="col-lg-3">
+                    <div class="col-lg-9">
+                        <div class="row row-40 row-md-60">
+                            <?php
+                                foreach ($products as $product) {
+                            ?>
+                            <div class="col-12">
+                                <article class="product product-horizontal">
+                                    <div class="media media-lg flex-column flex-xs-row align-items-xs-center">
+                                        <div class="media-left">
+                                            <div class="product-figure">
+                                                <a href="<?php echo base_url('product?sku=' . $product->sku); ?>">
+                                                    <img class="product-image" src="<?php echo $product->photo_url; ?>" alt="<?php echo $product->name; ?>" width="372" height="290"/>
+                                                </a>
+                                                <?php 
+                                                    if (!is_null($product->price_old)) { 
+                                                        $current = (int) filter_var($product->price_current, FILTER_SANITIZE_NUMBER_INT);
+                                                        $old     = (int) filter_var($product->price_old, FILTER_SANITIZE_NUMBER_INT);
+                                                ?>
+                                                <span class="badge badge-danger product-badge">-<?php echo 100 - round($current/$old*100, 0); ?>%</span>
+                                                <?php } ?>
+                                            </div>
+                                        </div>
+                                        <div class="media-body">
+                                            <div class="product-title h6"><a href="<?php echo base_url('product?sku=' . $product->sku); ?>"><?php echo $product->name; ?></a></div>
+                                            <div class="product-price">
+                                                <?php if (!is_null($product->price_old)) { ?>
+                                                <del><?php echo $product->price_old; ?></del>
+                                                <?php } ?>
+                                                <span><?php echo $product->price_current; ?></span>
+                                            </div>
+                                            <div class="product-text"><?php echo $product->description; ?></div>
+                                            <a class="btn btn-primary product-btn" href="<?php echo base_url('product?sku=' . $product->sku); ?>">View details</a>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                            <?php } ?>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 pull-left">
                         <div class="row row-40 row-md-50">
                             <?php if (!empty($categories)) { ?>
                             <div class="col-sm-6 col-md-4 col-lg-12">
@@ -97,45 +136,6 @@
                                     </div>
                                     <?php } ?>
                                 </div>
-                            </div>
-                            <?php } ?>
-                        </div>
-                    </div>
-                    <div class="col-lg-9">
-                        <div class="row row-40 row-md-60">
-                            <?php
-                                foreach ($products as $product) {
-                            ?>
-                            <div class="col-12">
-                                <article class="product product-horizontal">
-                                    <div class="media media-lg flex-column flex-xs-row align-items-xs-center">
-                                        <div class="media-left">
-                                            <div class="product-figure">
-                                                <a href="<?php echo base_url('product?sku=' . $product->sku); ?>">
-                                                    <img class="product-image" src="<?php echo $product->photo_url; ?>" alt="<?php echo $product->name; ?>" width="372" height="290"/>
-                                                </a>
-                                                <?php 
-                                                    if (!is_null($product->price_old)) { 
-                                                        $current = (int) filter_var($product->price_current, FILTER_SANITIZE_NUMBER_INT);
-                                                        $old     = (int) filter_var($product->price_old, FILTER_SANITIZE_NUMBER_INT);
-                                                ?>
-                                                <span class="badge badge-danger product-badge">-<?php echo 100 - round($current/$old*100, 0); ?>%</span>
-                                                <?php } ?>
-                                            </div>
-                                        </div>
-                                        <div class="media-body">
-                                            <div class="product-title h6"><a href="<?php echo base_url('product?sku=' . $product->sku); ?>"><?php echo $product->name; ?></a></div>
-                                            <div class="product-price">
-                                                <?php if (!is_null($product->price_old)) { ?>
-                                                <del><?php echo $product->price_old; ?></del>
-                                                <?php } ?>
-                                                <span><?php echo $product->price_current; ?></span>
-                                            </div>
-                                            <div class="product-text"><?php echo $product->description; ?></div>
-                                            <a class="btn btn-primary product-btn" href="<?php echo base_url('product?sku=' . $product->sku); ?>">View details</a>
-                                        </div>
-                                    </div>
-                                </article>
                             </div>
                             <?php } ?>
                         </div>
